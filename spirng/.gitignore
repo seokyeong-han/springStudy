@@ -1,0 +1,59 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# OS 관련
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# 로그/임시 파일
+*.log
+logs/
+tmp/
+
+# 테스트 리포트
+test-results/
+test-report/
+
+# Spring Boot DevTools
+.spring-boot-devtools/
+.spring-boot-devtools.properties
+
+# 로컬 설정
+application-local.yml
+application-local.properties
