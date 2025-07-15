@@ -8,7 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository; //di -> 외부에서 memberRepository주입
+    }
+
     /**
      * 회원가입
      */
@@ -18,10 +23,17 @@ public class MemberService {
         return member.getId();
     }
     private void validateDuplicateMember(Member member) {
-        memberRepository.findByName(member.getName())
-                .ifPresent(m -> {
-                    throw new IllegalStateException("이미 존재하는 회원입니다.");
-                });
+        //1.
+//        Optional<Member> result = memberRepository.findByName(member.getName());
+//        result.ifPresent(m -> {
+//            throw new IllegalStateException("이미 존재하는 회원입니다.");
+//        });
+        //2.
+        memberRepository.findByName(member.getName()).ifPresent(m -> {
+            throw new IllegalStateException("이미 존재하는 회원입니다.");
+        });
+
+        // MemberRepository에 Optional로 선언되어 있어 2번처럼 선언해도 됨!
     }
     /**
      * 전체 회원 조회
