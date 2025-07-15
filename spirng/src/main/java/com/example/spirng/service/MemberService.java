@@ -12,6 +12,9 @@ public class MemberService {
 
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository; //di -> 외부에서 memberRepository주입
+        /*
+         * 의존성 주입(DI)은 객체가 필요한 다른 객체(의존성)를 직접 생성하지 않고 외부에서 받아 사용하는 방식입니다. 코드의 재사용성을 높이고 테스트하기 쉽게 만들어 줍니다.
+        * */
     }
 
     /**
